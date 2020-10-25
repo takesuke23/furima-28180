@@ -4,11 +4,12 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| name            | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| password_digest | string | null: false |
 
 ### Association
 
@@ -16,18 +17,16 @@
 
 ## items テーブル
 
-| Column    | Type      | Options                        |
-| --------- | --------- | ------------------------------ |
-| name      | string    | null: false                    |
-| image     | reference | null: false, foreign_key: true |
-| text      | string    | null: false                    |
-| category  | string    | null: false                    |
-| condition | string    | null: false                    |
-| shippment | string    | null: false                    |
-| area      | string    | null: false                    |
-| days      | string    | null: false                    |
-| price     | string    | null: false                    |
-| seller    | string   | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| name         | string     | null: false                    |
+| description  | string     | null: false                    |
+| category_id  | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| shippment_id | integer    | null: false                    |
+| area_id      | integer    | null: false                    |
+| days_id      | integer    | null: false                    |
+| price        | integer    | null: false                    |
 
 ### Association
 
@@ -36,13 +35,14 @@
 
 ## Addresses テーブル
 
-| Column  | Type       | Options     |
-| ------- | ---------- | ----------- |
-| zipcode | string     | null: false |
-| state   | string     | null: false |
-| city    | string     | null: false,|
-| street  | string     | null: false |
-| phone   | string     | null: false |
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| zipcode         | string     | null: false |
+| prefecture_id   | integer    | null: false |
+| city            | string     | null: false,|
+| street          | string     | null: false |
+| apartment       | string     | null: false |
+| phone           | integer    | null: false |
 
 ### Association
 
@@ -53,7 +53,7 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | created_at | string     | null: false, foreign_key: true |
-| price      | string     | null: false, foreign_key: true |
+| price      | integer     | null: false, foreign_key: true |
 
 ### Association
 
