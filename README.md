@@ -10,10 +10,18 @@
 | email           | string | null: false |
 | password        | string | null: false |
 | password_digest | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| kana_last       | string | null: false |
+| kana_first      | string | null: false |
+| birth_year      | string | null: false |
+| birth_month     | string | null: false |
+| birth_date      | string | null: false |
 
 ### Association
 
-- has_many :items, logs
+- has_many :items
+- has_many :logs
 
 ## items テーブル
 
@@ -23,7 +31,7 @@
 | description  | string     | null: false                    |
 | category_id  | integer    | null: false                    |
 | condition_id | integer    | null: false                    |
-| shippment_id | integer    | null: false                    |
+| ship_id      | integer    | null: false                    |
 | area_id      | integer    | null: false                    |
 | days_id      | integer    | null: false                    |
 | price        | integer    | null: false                    |
@@ -37,12 +45,12 @@
 
 | Column          | Type       | Options     |
 | --------------- | ---------- | ----------- |
-| zipcode         | string     | null: false |
-| prefecture_id   | integer    | null: false |
+| zip             | string     | null: false |
+| pre_id          | integer    | null: false |
 | city            | string     | null: false,|
 | street          | string     | null: false |
-| apartment       | string     | null: false |
-| phone           | integer    | null: false |
+| apt             | string     |             |
+| phone           | string     | null: false |
 
 ### Association
 
@@ -52,11 +60,12 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| created_at | string     | null: false, foreign_key: true |
-| price      | integer     | null: false, foreign_key: true |
+| name       | string     | null: false, foreign_key: true |
+| item       | string     | null: false, foreign_key: true |
+| price      | integer    | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :addresses
+- has_one :address
 - belongs_to :item
 - belongs_to :user
