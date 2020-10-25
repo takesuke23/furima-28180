@@ -1,24 +1,62 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items, logs
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column    | Type      | Options                        |
+| --------- | --------- | ------------------------------ |
+| name      | string    | null: false                    |
+| image     | reference | null: false, foreign_key: true |
+| text      | string    | null: false                    |
+| category  | string    | null: false                    |
+| condition | string    | null: false                    |
+| shippment | string    | null: false                    |
+| area      | string    | null: false                    |
+| days      | string    | null: false                    |
+| price     | string    | null: false                    |
+| seller    | string   | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :log
 
-* Deployment instructions
+## Addresses テーブル
 
-* ...
+| Column  | Type       | Options     |
+| ------- | ---------- | ----------- |
+| zipcode | string     | null: false |
+| state   | string     | null: false |
+| city    | string     | null: false,|
+| street  | string     | null: false |
+| phone   | string     | null: false |
+
+### Association
+
+- belongs_to :log
+
+## Log テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| created_at | string     | null: false, foreign_key: true |
+| price      | string     | null: false, foreign_key: true |
+
+### Association
+
+- has_many :addresses
+- belongs_to :item
+- belongs_to :user
