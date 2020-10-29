@@ -13,7 +13,7 @@
 | first_name         | string | null: false |
 | kana_last          | string | null: false |
 | kana_first         | string | null: false |
-| birthday           | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
@@ -22,33 +22,33 @@
 
 ## items テーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| name         | string     | null: false                    |
-| description  | string     | null: false                    |
-| category_id  | integer    | null: false                    |
-| condition_id | integer    | null: false                    |
-| ship_id      | integer    | null: false                    |
-| area_id      | integer    | null: false                    |
-| days_id      | integer    | null: false                    |
-| price        | integer    | null: false                    |
-| user_id      | integer    | null: false, foreign_key: true |
+| Column       | Type    | Options                        |
+| ------------ | ------- | ------------------------------ |
+| name         | string  | null: false                    |
+| description  | text    | null: false                    |
+| category_id  | integer | null: false                    |
+| condition_id | integer | null: false                    |
+| ship_id      | integer | null: false                    |
+| area_id      | integer | null: false                    |
+| days_id      | integer | null: false                    |
+| price        | integer | null: false                    |
+| user_id      | integer | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :log
+- has_one :log 
 
 ## Addresses テーブル
 
-| Column          | Type       | Options     |
-| --------------- | ---------- | ----------- |
-| zip             | string     | null: false |
-| pre_id          | integer    | null: false |
-| city            | string     | null: false,|
-| street          | string     | null: false |
-| building        | string     |             |
-| phone           | string     | null: false |
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| zip             | string  | null: false |
+| pre_id          | integer | null: false |
+| city            | string  | null: false,|
+| street          | string  | null: false |
+| building        | string  |             |
+| phone           | string  | null: false |
 
 ### Association
 
@@ -56,10 +56,10 @@
 
 ## Log テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| item       | string     | null: false,                   |
-| user_id    | string     | null: false, foreign_key: true |
+| Column     | Type    | Options                        |
+| ---------- | ------- | ------------------------------ |
+| item_id    | integer | null: false, foreign_key: true |
+| user_id    | integer | null: false, foreign_key: true |
 
 ### Association
 
