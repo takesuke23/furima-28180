@@ -4,19 +4,16 @@
 
 ## users テーブル
 
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| name            | string | null: false |
-| email           | string | null: false |
-| password        | string | null: false |
-| password_digest | string | null: false |
-| last_name       | string | null: false |
-| first_name      | string | null: false |
-| kana_last       | string | null: false |
-| kana_first      | string | null: false |
-| birth_year      | string | null: false |
-| birth_month     | string | null: false |
-| birth_date      | string | null: false |
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false | 
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| kana_last          | string | null: false |
+| kana_first         | string | null: false |
+| birthday           | string | null: false |
 
 ### Association
 
@@ -35,6 +32,7 @@
 | area_id      | integer    | null: false                    |
 | days_id      | integer    | null: false                    |
 | price        | integer    | null: false                    |
+| user_id      | integer    | null: false, foreign_key: true |
 
 ### Association
 
@@ -49,7 +47,7 @@
 | pre_id          | integer    | null: false |
 | city            | string     | null: false,|
 | street          | string     | null: false |
-| apt             | string     |             |
+| building        | string     |             |
 | phone           | string     | null: false |
 
 ### Association
@@ -60,9 +58,8 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| name       | string     | null: false, foreign_key: true |
-| item       | string     | null: false, foreign_key: true |
-| price      | integer    | null: false, foreign_key: true |
+| item       | string     | null: false,                   |
+| user_id    | string     | null: false, foreign_key: true |
 
 ### Association
 
