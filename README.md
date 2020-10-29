@@ -41,14 +41,15 @@
 
 ## Addresses テーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| zip             | string  | null: false |
-| pre_id          | integer | null: false |
-| city            | string  | null: false,|
-| street          | string  | null: false |
-| building        | string  |             |
-| phone           | string  | null: false |
+| Column   | Type    | Options                        |
+| -------- | ------- | ------------------------------ |
+| zip      | string  | null: false                    |
+| pre_id   | integer | null: false                    |
+| city     | string  | null: false                    |
+| street   | string  | null: false                    |
+| building | string  |                                |
+| phone    | string  | null: false                    |
+| log_id   | integer | null: fasle, foreign_key: true |
 
 ### Association
 
