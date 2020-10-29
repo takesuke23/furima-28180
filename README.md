@@ -1,24 +1,69 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false | 
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| kana_last          | string | null: false |
+| kana_first         | string | null: false |
+| birthday           | date   | null: false |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items
+- has_many :logs
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column       | Type    | Options                        |
+| ------------ | ------- | ------------------------------ |
+| name         | string  | null: false                    |
+| description  | text    | null: false                    |
+| category_id  | integer | null: false                    |
+| condition_id | integer | null: false                    |
+| ship_id      | integer | null: false                    |
+| area_id      | integer | null: false                    |
+| days_id      | integer | null: false                    |
+| price        | integer | null: false                    |
+| user_id      | integer | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :log 
 
-* Deployment instructions
+## Addresses テーブル
 
-* ...
+| Column   | Type    | Options                        |
+| -------- | ------- | ------------------------------ |
+| zip      | string  | null: false                    |
+| pre_id   | integer | null: false                    |
+| city     | string  | null: false                    |
+| street   | string  | null: false                    |
+| building | string  |                                |
+| phone    | string  | null: false                    |
+| log_id   | integer | null: fasle, foreign_key: true |
+
+### Association
+
+- belongs_to :log
+
+## Logs テーブル
+
+| Column     | Type    | Options                        |
+| ---------- | ------- | ------------------------------ |
+| item_id    | integer | null: false, foreign_key: true |
+| user_id    | integer | null: false, foreign_key: true |
+
+### Association
+
+- has_one :address
+- belongs_to :item
+- belongs_to :user
