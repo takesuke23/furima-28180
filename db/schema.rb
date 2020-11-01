@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_10_30_055124) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
     t.string "kana_last", null: false
     t.string "kana_first", null: false
     t.date "birthday", null: false
