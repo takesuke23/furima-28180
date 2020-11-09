@@ -38,8 +38,13 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
-      it "passwordが英数混合でないと登録できない" do
+      it "passwordが半角数字だけだと登録できない" do
         @user.password = "0000000"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it "passwordが半角英字だけだと登録できない" do
+        @user.password = "aaaaaa"
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is invalid")
       end
