@@ -29,7 +29,7 @@
 | category_id  | integer | null: false                    |
 | condition_id | integer | null: false                    |
 | ship_id      | integer | null: false                    |
-| area_id      | integer | null: false                    |
+| pre_id      | integer | null: false                    |
 | days_id      | integer | null: false                    |
 | price        | integer | null: false                    |
 | user_id      | integer | null: false, foreign_key: true |

@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_111805) do
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
     t.integer "ship_id", null: false
-    t.integer "area_id", null: false
+    t.integer "pre_id", null: false
     t.integer "days_id", null: false
     t.integer "price", null: false
     t.integer "user_id", null: false
