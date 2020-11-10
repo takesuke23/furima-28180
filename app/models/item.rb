@@ -3,6 +3,7 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :category_id
+    validates :condition_id
     validates :ship_id
     validates :pre_id
     validates :days_id
