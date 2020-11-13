@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :password, presence: true,  format: { with: VALID_PASSWORD_REGEX}
   validates :last_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :kana_last, :kana_first, presence: true, format: { with: /\A[\p{katakana}ー－&&[^ -~｡-ﾟ]]+\z/ }
+  has_many :items
 end
